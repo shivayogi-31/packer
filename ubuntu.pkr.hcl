@@ -2,7 +2,7 @@ packer {
   required_plugins {
     amazon = {
       source  = "github.com/hashicorp/amazon"
-      version = ">= 1.0.0, < 2.0.0"
+      version = "~> 1"
     }
   }
 }
@@ -17,16 +17,6 @@ source "amazon-ebs" "ubuntu" {
 
 build {
   sources = ["source.amazon-ebs.ubuntu"]
-
-  builders = [
-    {
-      type          = "amazon-ebs"
-      region        = "ap-south-1"
-      instance_type = "t2.micro"
-      ssh_username  = "ubuntu"
-      ami_name      = "ubuntu-image-{{timestamp}}"
-    }
-  ]
 
   provisioner "shell" {
     inline = [
