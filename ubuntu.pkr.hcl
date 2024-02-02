@@ -7,8 +7,12 @@ packer {
   }
 }
 
+locals {
+  timestamp = regex_replace(timestamp(), "[- TZ:]", "")
+}
+
 source "amazon-ebs" "ubuntu" {
-  ami_name      = "ubuntu-image"
+  ami_name      = "ubuntu-image-${local.timestamp}"
   instance_type = "t2.micro"
   region        = "ap-south-1"
   source_ami    = "ami-03f4878755434977f"
