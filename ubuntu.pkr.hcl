@@ -12,11 +12,9 @@ build {
   provisioner "shell" {
     inline = [
       "sudo apt update",
-      "sudo apt install nginx -y"
-      "sudo systemctl enable nginx"
+      "sudo apt install nginx -y",
+      "sudo systemctl enable nginx",
       "sudo systemctl start nginx"
     ]
   }
 }
-
-
