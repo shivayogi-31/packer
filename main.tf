@@ -8,9 +8,9 @@ region = var.region
 
 resource "aws_launch_configuration" "demo" {
   
-  image_id = var.image_id
+  image_id = var.latest_ami
   instance_type = var.instance_type
-  key_name = "new-kp"
+
 }
 
 
@@ -20,6 +20,5 @@ resource "aws_autoscaling_group" "demo" {
   max_size             = 4
   min_size             = 1
   launch_configuration = aws_launch_configuration.demo.id
-  vpc_zone_identifier  = ["subnet-"] 
-
+  
 }
