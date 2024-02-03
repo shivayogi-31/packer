@@ -10,7 +10,6 @@ resource "aws_launch_configuration" "demo" {
   
   image_id = var.image_id
   instance_type = var.instance_type
-  security_groups = [""]
   key_name = "new-kp"
 }
 
