@@ -6,5 +6,9 @@ variable "instance_type" {
   default = "t2.micro"
 }
 
+variable "latest_ami" {
+  description = "The ID of the latest AMI"
+}
+
 
 
